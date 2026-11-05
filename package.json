@@ -1,0 +1,13 @@
+{
+  "name": "factory-fixture-shop",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A tiny shop library used as the target repository in the factory's end-to-end tests.",
+  "scripts": {
+    "lint": "node scripts/lint.mjs",
+    "typecheck": "node scripts/lint.mjs --syntax-only",
+    "test": "node --test",
+    "build": "node scripts/build.mjs"
+  }
+}
