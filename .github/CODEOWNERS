@@ -1,0 +1,8 @@
+# Proposed by the Vaul Software Factory. Changes to these paths need this approval.
+/.github/ @iainatvaul
+/.factory/ @iainatvaul
+/.claude/ @iainatvaul
+**/auth/ @iainatvaul
+**/payments/ @iainatvaul
+**/migrations/ @iainatvaul
+/middleware.ts @iainatvaul

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "repository": {
+    "mainBranch": "main",
+    "prototypeBranchPrefix": "prototype/",
+    "packageManager": "npm",
+    "commands": {
+      "install": "npm install --no-audit --no-fund",
+      "lint": "npm run lint",
+      "typecheck": "npm run typecheck",
+      "test": "npm test",
+      "build": "npm run build"
+    },
+    "ciChecks": [
+      "check"
+    ]
+  },
+  "asana": {
+    "projectGid": "",
+    "readySectionGid": "",
+    "statusFieldGid": "",
+    "riskFieldGid": "",
+    "statusOptionGids": {},
+    "riskOptionGids": {},
+    "pollMinutes": 5
+  },
+  "profiles": {
+    "prototype": {
+      "enabled": true,
+      "targetBranch": "prototype/main",
+      "specApproval": "auto_if_low_risk",
+      "merge": "auto_when_checks_pass",
+      "maxBuildRounds": 3,
+      "reviewers": [
+        "code"
+      ]
+    },
+    "production": {
+      "enabled": true,
+      "targetBranch": "main",
+      "specApproval": "person",
+      "merge": "person_in_github",
+      "maxBuildRounds": 3,
+      "reviewers": [
+        "code",
+        "security_if_medium_or_high",
+        "ux_if_screens_changed"
+      ],
+      "approver": "iainatvaul"
+    }
+  },
+  "risk": {
+    "highRiskPaths": [
+      "**/auth/**",
+      "**/payments/**",
+      "**/migrations/**",
+      "middleware.ts"
+    ],
+    "mediumRiskPaths": [
+      "app/api/**",
+      "package.json",
+      "pnpm-lock.yaml"
+    ]
+  },
+  "protectedPaths": [
+    ".github/**",
+    ".factory/config.json",
+    ".claude/settings.json",
+    ".factory/README.md",
+    "**/.env*"
+  ],
+  "previews": {
+    "provider": "vercel",
+    "enabled": false,
+    "browserChecks": true
+  },
+  "limits": {
+    "concurrentJobs": 2,
+    "jobTimeoutMinutes": 120,
+    "maxChangedFiles": 40,
+    "maxChangedLines": 1500
+  }
+}
