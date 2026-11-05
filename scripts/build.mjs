@@ -16,7 +16,7 @@ const page = `<!doctype html>
 <html lang="en-GB">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Orders</title></head>
 <body>
-<h1>Orders</h1>
+<h1>Orders</h1>\n<p>Proof 9 preview test.</p>
 <table><thead><tr><th>Order</th><th>Customer</th><th>Total</th></tr></thead><tbody>${rows}</tbody></table>
 <p id="total">Total sales: ${totalSales().toFixed(2)}</p>
 </body>
