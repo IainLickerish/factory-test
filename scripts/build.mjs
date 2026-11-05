@@ -6,6 +6,9 @@ import { listOrders, totalSales } from '../src/orders.js';
 const escape = (text) =>
   String(text).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
+// Deliberately broken production build, for the M7 exit check. Revert this pull request afterwards.
+if (process.env.VERCEL_ENV === 'production') throw new Error('Deliberately broken production build (M7 exit check).');
+
 rmSync('dist', { recursive: true, force: true });
 cpSync('src', 'dist', { recursive: true });
 
@@ -17,6 +20,7 @@ const page = `<!doctype html>
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Orders</title></head>
 <body>
 <h1>Orders</h1>
+<p>Preview of the M7 check 202611051542.</p>
 <table><thead><tr><th>Order</th><th>Customer</th><th>Total</th></tr></thead><tbody>${rows}</tbody></table>
 <p id="total">Total sales: ${totalSales().toFixed(2)}</p>
 </body>
