@@ -1,0 +1,75 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(vfactory *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git rev-parse *)",
+      "Bash(git ls-files *)",
+      "Bash(gh pr view *)",
+      "Bash(gh pr checks *)",
+      "Bash(gh pr diff *)",
+      "Bash(npm install --no-audit --no-fund)",
+      "Bash(npm install --no-audit --no-fund *)",
+      "Bash(npm run lint)",
+      "Bash(npm run lint *)",
+      "Bash(npm run typecheck)",
+      "Bash(npm run typecheck *)",
+      "Bash(npm test)",
+      "Bash(npm test *)",
+      "Bash(npm run build)",
+      "Bash(npm run build *)"
+    ],
+    "deny": [
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git push --force-with-lease *)",
+      "Bash(git push --mirror *)",
+      "Bash(git push --delete *)",
+      "Bash(git branch -D *)",
+      "Bash(gh pr merge *)",
+      "Bash(gh repo delete *)",
+      "Bash(gh secret *)",
+      "Bash(gh auth *)",
+      "Bash(vfactory setup *)",
+      "Bash(vfactory config *)",
+      "Bash(vfactory decide *)",
+      "Read(./.factory/local.env)",
+      "Read(./.factory/dashboard.token)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.config/gh/**)",
+      "Edit(.github/**)",
+      "Edit(.factory/config.json)",
+      "Edit(.claude/settings.json)",
+      "Edit(.factory/README.md)",
+      "Edit(**/.env*)",
+      "Edit(.claude/**)",
+      "Edit(.factory/jobs/*/job.json)",
+      "Edit(.factory/jobs/*/events.jsonl)"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "allowUnsandboxedCommands": false,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "api.github.com",
+        "*.githubusercontent.com",
+        "registry.npmjs.org",
+        "registry.yarnpkg.com",
+        "bun.sh",
+        "vercel.com",
+        "*.vercel.app",
+        "app.asana.com"
+      ]
+    }
+  }
+}
